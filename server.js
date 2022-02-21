@@ -8,20 +8,20 @@ const corOptions = {
 }
 
 
-// routers
-
-const router = require ('./routes/productRouter.js')
-
-
-
-
-
 
 // Middlewares:
 
 app.use(cors(corOptions))
 app.use(express.json())
 app.use (express.urlencoded({ extended: true}))
+
+
+
+// routers
+
+const router = require ('./routes/productRouter.js')
+app.use ('/api/products', router)
+
 
 // Testing the API:
 
