@@ -7,6 +7,16 @@ const corOptions = {
     origin: 'https://localhost:3000'
 }
 
+
+// routers
+
+const router = require ('./routes/productRouter.js')
+
+
+
+
+
+
 // Middlewares:
 
 app.use(cors(corOptions))
@@ -18,6 +28,8 @@ app.use (express.urlencoded({ extended: true}))
 app.get('/', (req, res) => {
     res.json({message: 'hello world'})
 } )
+
+// Port
 
 const PORT = process.env.PORT || 3000
 
