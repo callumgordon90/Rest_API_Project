@@ -49,5 +49,38 @@ const updateProduct = async (req, res) => {
 
     let id = req.params.id
     const product = await Product.update(req.body, { where: { id: id}})
+
+    res.status(200).send(product)
    
+}
+
+
+// 5. Delete product by id
+
+const deleteProduct = async (req, res) => {
+    
+    let id = req.params.id
+
+    await Product.destroy({where: { id: id }} )
+
+    res.status(200).send('Product is deleted')
+}
+
+// Get published product
+
+const getPublishedProduct = async (req, res) => {
+
+    const products = await Product.findAll({ where: { published: true}})
+
+    res.status(200).send(products)
+}
+
+module.exports = {
+
+    addProduct,
+    getAllProducts,
+    getOneProduct,
+    updateProduct,
+    deleteProduct,
+    getPublishedProduct
 }
